@@ -1,4 +1,4 @@
-import config
+import os
 import asyncio
 import logging
 from aiogram import Bot, Dispatcher, types
@@ -7,7 +7,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 logging.basicConfig(level=logging.INFO, filename="bot_log.log", filemode="w")
 
-bot = Bot(token = config.TOKEN)
+bot = Bot(token = os.environ.get("TOKEN"))
 dp = Dispatcher(bot, storage=MemoryStorage())
 
 def breaks_delete(text):
